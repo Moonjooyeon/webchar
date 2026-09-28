@@ -267,7 +267,24 @@ body{margin:0;background:#f1f7f7;color:var(--ink)}#select{background:linear-grad
 #select{--tone:hsl(var(--gh) var(--gs) 78%);--soft:hsl(var(--gh) var(--gs) 91%);--deep:hsl(var(--gh) 30% 28%);background:linear-gradient(135deg,#fff,var(--soft))}.home-banner{background:radial-gradient(circle at 15% 130%,hsl(var(--gh) var(--gs) 89%) 0 30%,transparent 30.2%),radial-gradient(circle,#ffffffa1 1px,transparent 2px) 0 0/39px 39px,linear-gradient(120deg,hsl(var(--gh) var(--gs) 84%),hsl(var(--gh) var(--gs) 69%))}.banner-art{transform:translate(var(--image-x,0%),var(--image-y,0%)) scale(var(--image-zoom,1));transform-origin:center;user-select:none;-webkit-user-drag:none}.image-left .banner-art{right:auto;left:0}.image-left .banner-copy{margin-left:46%;padding-left:3%;width:45%}.banner-kicker,.d-en,.d-desc,.enter{color:var(--deep)}.enter{border-color:var(--deep)}.card.on,.keyword-pill,.home-images button{background:var(--soft);border-color:var(--tone)}.keyword-pill:nth-child(3){background:var(--tone)}.keyword-pill:nth-child(4){background:var(--deep)}.tile-icon{color:hsl(var(--gh) var(--gs) 47%)}.hudbtn{background:var(--tone);color:var(--deep)}.home-grid{grid-template-columns:repeat(var(--columns,3),minmax(0,1fr))}#homeTools{margin:0 0 12px;text-align:right}.home-controls{text-align:left;background:#ffffffeb;border:1px solid #cad9dc;border-radius:18px;padding:18px;margin-top:12px;display:flex;flex-wrap:wrap;gap:16px}.home-controls p{flex-basis:100%;font-size:12px;margin:0;color:#536e76}.home-controls label{display:flex;align-items:center;gap:8px;font-size:12px}.home-controls input{width:100px;accent-color:var(--deep)}.home-controls output{min-width:28px}.home-controls select{width:auto;padding:7px}.home-editing .banner-art{cursor:grab;touch-action:none;outline:2px dashed #597f9b;outline-offset:-3px}.home-editing .banner-art:active{cursor:grabbing}.home-editing .banner-copy{pointer-events:none}.home-editing .banner-art{z-index:3}
 @media(max-width:760px){.home-grid{grid-template-columns:repeat(min(var(--columns,3),2),minmax(0,1fr))}.home-info{display:block;grid-column:auto}.info-tile{margin-bottom:12px}.image-left .banner-copy{margin-left:38%;width:55%}.home-controls{gap:12px}.home-controls label{flex:1 0 45%}}
 </style>
-</head>
+<style id="restore-character-selection">
+#select .stage{justify-content:safe center;align-items:center;padding:30px 4px 38px;gap:16px;overflow-x:auto}
+#select .card,#select .card:nth-child(odd){--cw:164px;height:clamp(330px,48vh,500px);border-radius:18px;background:linear-gradient(145deg,hsl(var(--ch) var(--cs) 92%),hsl(var(--ch) var(--cd) 78%));box-shadow:0 10px 28px #24444e12;border:1px solid #ffffffd9}
+#select .card.on{--cw:clamp(230px,24vw,300px);transform:translateY(-8px);border:2px solid hsl(var(--ch) var(--cs) 55%);box-shadow:0 14px 34px #24444e24}
+#select .card img,#select .card.cutout img,#select .card.on img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 15%;border-radius:0;filter:saturate(.65);transform:none}
+#select .card.cutout img{object-fit:contain;object-position:center bottom;top:6%;height:94%}
+#select .card.on img{filter:none}
+#select .card .shade{display:block;height:40%;background:linear-gradient(transparent,#f6fafbf5)}
+#select .card .lab{left:18px;right:18px;top:auto;bottom:20px}#select .card .nm{font-size:19px;color:#203c49}
+#select .card .en{display:block;font-size:10px;color:#57717c;letter-spacing:.12em}
+#select .card .no{display:block;left:18px;top:18px;color:#395661;font-size:11px}
+#select .card .vt{display:block;color:transparent;-webkit-text-stroke:1px #385f6c24}
+#select .card.add{--cw:68px;box-shadow:none;background:#ffffff70;border:1px dashed #9cbcc2}#select .card.add span{font-size:11px;writing-mode:vertical-rl}
+#select .detail{display:grid;grid-template-columns:1fr 1fr auto;gap:24px;align-items:center;border-top:1px solid #bccfd5;padding-top:24px}#select .detail .d-name{font-size:32px}#select .detail .enter{margin:0}#select .d-desc{margin:0}#select .d-tag{color:#486b78}
+.profile-home{--deep:hsl(var(--gh) 30% 28%);--soft:hsl(var(--gh) var(--gs) 91%);--tone:hsl(var(--gh) var(--gs) 78%);max-width:1200px;margin:0 auto;padding:24px var(--gut)}
+.profile-home .home-banner .enter{display:none}
+@media(max-width:760px){#select .stage{justify-content:flex-start}#select .card{--cw:145px;height:350px}#select .card.on{--cw:235px}#select .detail{grid-template-columns:1fr}#select .detail .enter{justify-self:start}}
+</style></head>
 <body>
 
 
@@ -434,7 +451,7 @@ function pick(multiple,cb){picker.multiple=!!multiple;picker.onchange=async()=>{
 /* ================= SELECT ================= */
 let focusIdx=0,current=null,editing=false;
 function renderSelect(){
-  editing=false;document.body.classList.remove('editing');applyTheme(NEUTRAL);
+  editing=false;document.body.classList.remove('editing','home-editing');$('#profile').innerHTML='';applyTheme(NEUTRAL);
   $('#sPhoto').style.backgroundImage=`url(${data.worldBg||DEF_BG})`;$('#worldBgReset').hidden=!data.worldBg;
   $('#world').value=data.world||'';$('#count').textContent=pad(data.chars.length);
   $('#notice').hidden=!data.chars.some(c=>c.sample);
@@ -452,7 +469,7 @@ function setFocus(i,scroll=true){
   focusIdx=i;cards.forEach((c,j)=>c.classList.toggle('on',j===i));$('#stage').classList.add('has-on');
   const c=data.chars[i],k=colorOf(c),sel=$('#select');
   sel.style.setProperty('--gh',k.h);sel.style.setProperty('--gs',Math.round(Math.max(k.s,.12)*100)+'%');$('#bigEn').textContent=c.en||c.name;
-  $('#detail').innerHTML=`<div class="home-banner"><div class="banner-copy"><p class="banner-kicker">${esc(data.world)} / ${pad(i+1)}</p><h2 class="d-name">${esc(c.name)}</h2><div class="d-en">${esc(c.en||'')}</div><p class="d-desc">${esc(c.quote||c.desc||c.tagline||'')}</p><button type="button" class="enter" id="enter">프로필 보기 <span>↗</span></button><div class="banner-dots" aria-hidden="true">${data.chars.map((_,j)=>'<i class="'+(i===j?'active':'')+'"></i>').join('')}</div></div><img class="banner-art" src="${c.img}" alt="${esc(c.name)}"></div><div class="home-grid"><section class="home-art"><h3>Artwork <span>↗</span></h3><div class="home-images">${(c.gallery.length?c.gallery:[c.img]).slice(0,2).map(g=>`<button type="button" data-open-profile aria-label="아트워크 자세히 보기"><img src="${g}" alt="${esc(c.name)} 아트워크"></button>`).join('')}</div><button class="home-more" type="button" data-open-profile>갤러리 보기 ↗</button></section><section class="home-keywords"><h3>Character notes</h3>${(c.tags||[]).map(t=>`<div class="keyword-pill"><span>✳</span>${esc(t)}</div>`).join('')}${c.sd?`<div class="home-sticker"><img src="${c.sd}" alt="캐릭터 SD"></div>`:''}</section><section class="home-info"><h3>About</h3><div class="info-tile"><b class="tile-icon">${pad(i+1)}</b><div><h4>${esc(c.name)}</h4><p>${esc(c.tagline||data.world)}</p></div></div>${(c.stats||[]).slice(0,2).map(([key,value])=>`<div class="info-tile"><b class="tile-icon">✧</b><div><h4>${esc(key)}</h4><p>${esc(value)}</p></div></div>`).join('')}${c.song?.title?`<div class="info-tile"><b class="tile-icon">♫</b><div><h4>${esc(c.song.title)}</h4><p>${esc(c.song.artist||'테마곡')}</p></div></div>`:''}</section></div>`;
+  $('#detail').innerHTML=`<div><h2 class="d-name">${esc(c.name)}</h2><div class="d-en">${esc(c.en||'')}</div></div><div><p class="d-tag">${esc(c.tagline||'')}</p><p class="d-desc">${esc(c.quote||c.desc||'')}</p></div><button type="button" class="enter" id="enter">프로필 보기 ↗</button>`;
   if(scroll)cards[i].scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
 }
 $('#stage').addEventListener('click',e=>{const b=e.target.closest('.card');if(!b)return;if(b.id==='addCard')return openForm(null);
@@ -548,7 +565,8 @@ function renderProfile(id){
     <button class="pg" type="button" data-go="${prev.id}"><small>PREV · No.${pad((i-1+n)%n+1)}</small><b>${esc(prev.name)}</b></button>
     <button class="pg next" type="button" data-go="${next.id}"><small>NEXT · No.${pad((i+1)%n+1)}</small><b>${esc(next.name)}</b></button>
   </div></nav>`:''}`;
-  bindDrag();show('profile');
+  const home=document.createElement('section');home.className='profile-home';home.id='profileHome';home.innerHTML=`<div class="home-banner"><div class="banner-copy"><p class="banner-kicker">${esc(data.world)} / ${pad(i+1)}</p><h2 class="d-name">${esc(c.name)}</h2><div class="d-en">${esc(c.en||'')}</div><p class="d-desc">${esc(c.quote||c.desc||c.tagline||'')}</p><button type="button" class="enter" id="enter">프로필 보기 <span>↗</span></button><div class="banner-dots" aria-hidden="true">${data.chars.map((_,j)=>'<i class="'+(i===j?'active':'')+'"></i>').join('')}</div></div><img class="banner-art" src="${c.img}" alt="${esc(c.name)}"></div><div class="home-grid"><section class="home-art"><h3>Artwork <span>↗</span></h3><div class="home-images">${(c.gallery.length?c.gallery:[c.img]).slice(0,2).map(g=>`<button type="button" data-open-profile aria-label="아트워크 자세히 보기"><img src="${g}" alt="${esc(c.name)} 아트워크"></button>`).join('')}</div><button class="home-more" type="button" data-open-profile>갤러리 보기 ↗</button></section><section class="home-keywords"><h3>Character notes</h3>${(c.tags||[]).map(t=>`<div class="keyword-pill"><span>✳</span>${esc(t)}</div>`).join('')}${c.sd?`<div class="home-sticker"><img src="${c.sd}" alt="캐릭터 SD"></div>`:''}</section><section class="home-info"><h3>About</h3><div class="info-tile"><b class="tile-icon">${pad(i+1)}</b><div><h4>${esc(c.name)}</h4><p>${esc(c.tagline||data.world)}</p></div></div>${(c.stats||[]).slice(0,2).map(([key,value])=>`<div class="info-tile"><b class="tile-icon">✧</b><div><h4>${esc(key)}</h4><p>${esc(value)}</p></div></div>`).join('')}${c.song?.title?`<div class="info-tile"><b class="tile-icon">♫</b><div><h4>${esc(c.song.title)}</h4><p>${esc(c.song.artist||'테마곡')}</p></div></div>`:''}</section></div>`;$('#profile').prepend(home);focusIdx=i;
+  bindDrag();show('profile');paintHome();
 }
 function bindDrag(){
   const c=cur(),cover=$('#cover');
@@ -658,10 +676,10 @@ function paintHome(){
  const banner=$('.home-banner');if(!banner)return;
  banner.style.setProperty('--image-x',l.x+'%');banner.style.setProperty('--image-y',l.y+'%');banner.style.setProperty('--image-zoom',l.zoom/100);banner.style.minHeight=l.height+'px';banner.classList.toggle('image-left',l.side==='left');
  const grid=$('.home-grid');grid.style.gap=l.gap+'px';grid.style.setProperty('--columns',l.columns);l.order.split(',').forEach((key,i)=>{const el=$('.home-'+key);if(el)el.style.order=i});
- sel.classList.toggle('home-editing',homeEditing);
+ document.body.classList.toggle('home-editing',homeEditing);const host=$('#profileHome');if(host){host.style.setProperty('--gh',k.h);host.style.setProperty('--gs',Math.round(Math.min(.65,Math.max(.08,k.s))*100)+'%')}
  let toolbar=$('#homeTools');if(toolbar)toolbar.remove();
  const tools=document.createElement('div');tools.id='homeTools';tools.innerHTML=`<button class="line-btn" id="toggleHomeEdit" type="button">${homeEditing?'✓ 배치 완료':'배치 편집'}</button>${homeEditing?`<div class="home-controls"><p>이미지를 직접 끌어서 옮기세요. 변경 사항은 캐릭터별로 저장됩니다.</p>${[['x','가로 위치',-70,70],['y','세로 위치',-70,70],['zoom','이미지 크기',50,200],['height','배너 높이',250,600],['gap','카드 간격',8,48]].map(([key,label,min,max])=>`<label>${label}<input type="range" data-layout="${key}" min="${min}" max="${max}" value="${l[key]}"><output>${l[key]}</output></label>`).join('')}<label>이미지 방향<select data-layout="side"><option value="right" ${l.side==='right'?'selected':''}>오른쪽</option><option value="left" ${l.side==='left'?'selected':''}>왼쪽</option></select></label><label>하단 열 수<select data-layout="columns">${[1,2,3].map(n=>`<option ${l.columns===n?'selected':''}>${n}</option>`).join('')}</select></label><label>카드 순서<select data-layout="order">${[['art,keywords,info','아트워크 · 키워드 · 소개'],['info,art,keywords','소개 · 아트워크 · 키워드'],['keywords,info,art','키워드 · 소개 · 아트워크']].map(([v,t])=>`<option value="${v}" ${l.order===v?'selected':''}>${t}</option>`).join('')}</select></label><button class="line-btn" type="button" id="resetHomeLayout">배치 초기화</button></div>`:''}`;
- $('#detail').prepend(tools);
+ ($('#profileHome')||$('#detail')).prepend(tools);
  $('#toggleHomeEdit').onclick=()=>{homeEditing=!homeEditing;paintHome()};
  const reset=$('#resetHomeLayout');if(reset)reset.onclick=()=>{c.homeLayout={...homeDefaults};save();paintHome()};
  tools.oninput=e=>{const key=e.target.dataset.layout;if(!key)return;c.homeLayout={...l,...c.homeLayout,[key]:['side','order'].includes(key)?e.target.value:Number(e.target.value)};save();const input=e.target,output=input.nextElementSibling;if(output?.tagName==='OUTPUT')output.value=input.value;const a=c.homeLayout;banner.style.setProperty('--image-x',a.x+'%');banner.style.setProperty('--image-y',a.y+'%');banner.style.setProperty('--image-zoom',a.zoom/100);banner.style.minHeight=a.height+'px';grid.style.gap=a.gap+'px';grid.style.setProperty('--columns',a.columns);banner.classList.toggle('image-left',a.side==='left');a.order.split(',').forEach((key,i)=>{$('.home-'+key).style.order=i})};
