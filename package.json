@@ -1,0 +1,1 @@
+{"name":"astral-character-selection","private":true,"type":"module","scripts":{"build":"esbuild src/removal.js --bundle --format=esm --outfile=dist/removal.js"},"dependencies":{"@imgly/background-removal":"1.7.0","onnxruntime-web":"1.21.0"},"devDependencies":{"esbuild":"0.25.10"}}
