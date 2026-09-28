@@ -372,6 +372,36 @@ body{margin:0;background:#f1f7f7;color:var(--ink)}#select{background:linear-grad
 #profile .edbar{background:#101a21f2;border:1px solid #80949e4c;border-radius:0;color:#dce5e7}#profile .minibtn{background:#17242c;color:#c9d5d9;border-color:#74899347;border-radius:0}
 @media(max-width:760px){#profile .cover{min-height:720px}#profile .cv-art{left:57%;height:calc(var(--s) * 77%);bottom:17%}#profile .cv-scrim{background:linear-gradient(0deg,#0d151b 0,#0d151be8 30%,transparent 67%),linear-gradient(180deg,#0d151b90,transparent 25%)}#profile .cv-text{left:24px;right:24px;bottom:45px;width:auto;gap:10px}#profile .cv-name{font-size:58px}#profile .cv-en{font-size:11px}#profile .cv-quote{font-size:15px;margin-top:9px;max-width:70%}#profile .cv-sd{right:20px;top:69%!important;width:78px}#profile .masthead{top:78px}#profile .feature{grid-template-columns:1fr;gap:45px}#profile .article{padding-top:55px;gap:65px}#profile .cover::after{font-size:150px}}
 </style>
+<style id="school-scrapbook-theme">
+:root{--album:#fff9ed;--pencil:#303b47;--school:#85b8d2;--school2:#f3a9b9;--paper:#fffaf0;--ink:#303b47;--dim:#77828c;--rule:#30415025}
+body{background:#dcecf3;color:var(--pencil)}
+#select{--accent:var(--school);--accent2:var(--school2);--paper-pattern:none;background:var(--album);color:var(--pencil);overflow-x:hidden}
+#select .s-photo{display:block;opacity:.07;filter:grayscale(.6) saturate(.7);mix-blend-mode:multiply}
+#select .s-glow{display:block;background:radial-gradient(circle at 80% 20%,color-mix(in srgb,var(--accent2) 35%,transparent),transparent 34%),radial-gradient(circle at 18% 68%,color-mix(in srgb,var(--accent) 28%,transparent),transparent 30%);opacity:1}
+#select::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--paper-pattern),linear-gradient(90deg,transparent 0 49.85%,#7896a513 49.9% 50.1%,transparent 50.15%)}
+#select::after{content:"✦  after school memories  ♡";top:auto;bottom:18px;left:auto;right:38px;transform:none;font:600 12px/1 var(--f-hud);letter-spacing:.12em;color:#526c7980;-webkit-text-stroke:0}
+#select .s-wrap{max-width:1380px;padding:22px clamp(20px,4vw,60px) 42px}
+#select .hud{position:relative;padding:0 0 18px;border-bottom:2px solid #3d566132;color:var(--pencil)}#select .hud::after{content:"CLASS RECORD · 20XX";position:absolute;left:50%;bottom:-7px;transform:translateX(-50%) rotate(-1deg);background:var(--album);padding:0 12px;font:700 9px var(--f-hud);letter-spacing:.2em;color:#6e7d84}
+#select .brand img{width:35px;height:35px;border:0;border-radius:50%;background:var(--accent);padding:7px;filter:none;box-shadow:3px 3px 0 #30445222}#select .kick{color:#788890;font-size:9px}#select #world{color:var(--pencil);font-family:var(--f-kr);font-size:22px;border:0;border-bottom:2px solid var(--accent);transform:rotate(-.6deg)}
+#select .roster-n{color:#697b84;border:0}#select .roster-n b{color:var(--pencil)}#select .line-btn,#select .hudbtn{border:1px solid #40566133;border-radius:999px;background:#fffdf8;color:#3d5059;box-shadow:2px 3px 0 #40566116;font-size:10px}#select .hudbtn{background:var(--accent);color:#fff;border-color:transparent}
+.decor-panel{position:absolute;z-index:30;right:clamp(20px,4vw,60px);top:90px;width:min(360px,calc(100vw - 40px));box-sizing:border-box;padding:18px;background:#fffdf7;border:1px solid #4b626d33;box-shadow:8px 10px 0 #48606c20,0 22px 50px #536f7c22;transform:rotate(.4deg)}.decor-panel::before{content:"";position:absolute;width:86px;height:22px;top:-11px;left:50%;transform:translateX(-50%) rotate(-2deg);background:#f5d98ea8}.decor-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px dashed #71838b66;font:700 11px var(--f-hud);letter-spacing:.15em}.decor-head button{border:0;background:none;font-size:22px;color:#60747d}.decor-group{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:center;margin-top:15px}.decor-group>span,.decor-group label{font-size:11px;color:#657780}.decor-swatches,.decor-options{display:flex;flex-wrap:wrap;gap:8px}.decor-swatch{width:27px;height:27px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #40566133}.decor-swatch.on{box-shadow:0 0 0 2px #374d58}.decor-option{border:1px solid #5268722f;background:#f8f5ec;color:#52646c;padding:7px 9px;border-radius:6px;font-size:10px}.decor-option.on{background:var(--accent);color:#fff}.decor-ranges{display:flex;flex-direction:column;align-items:stretch}.decor-ranges label{display:grid;grid-template-columns:82px 1fr;align-items:center}.decor-ranges input{accent-color:var(--accent)}.decor-reset{margin-top:14px;border:0;background:none;text-decoration:underline;color:#74858d;font-size:10px}
+#select .stage{flex:1;min-height:500px;justify-content:center;align-items:center;gap:clamp(12px,2vw,26px);padding:46px 14px 34px;perspective:none;overflow-x:auto}
+#select .card,#select .card:nth-child(n),#select .card.on{--cw:clamp(155px,17vw,225px);height:clamp(350px,52vh,500px);margin:0;overflow:visible;border:0;background:#fff;box-shadow:5px 8px 20px #526e7b20,0 0 0 1px #61798520;opacity:.78!important;filter:none;transform:rotate(calc((var(--card-i,0) - 1.5) * var(--tilt,1) * 1deg)) translateY(12px);transition:transform .45s,opacity .3s,box-shadow .4s;z-index:1;padding:10px 10px 66px}
+#select .card:nth-child(1){--card-i:0}#select .card:nth-child(2){--card-i:1}#select .card:nth-child(3){--card-i:2}#select .card:nth-child(4){--card-i:3}
+#select .card::before{content:"";display:block;position:absolute;z-index:7;top:-11px;left:50%;width:55%;height:22px;transform:translateX(-50%) rotate(calc((var(--card-i) - 1.5) * -1deg));background:#f7dda7b8;clip-path:none}
+#select .card:nth-child(even)::before{background:#b6dce6b8}.decor-density-0 #select .card::before{display:none}
+#select .card.on{--cw:clamp(235px,27vw,345px);height:clamp(410px,60vh,590px);opacity:1!important;transform:rotate(-.5deg) translateY(-5px);box-shadow:9px 14px 30px #526e7b2b,0 0 0 3px #fff;z-index:5}
+#select .stage.has-on .card:not(.on):not(.add){opacity:.62!important}#select .stage.has-on .card:not(.on):hover{opacity:.92!important;transform:rotate(0) translateY(2px)}
+#select .card img,#select .card.cutout img,#select .card.on img{position:absolute;inset:10px 10px 66px;width:calc(100% - 20px);height:calc(100% - 76px);object-fit:cover;object-position:50% 14%;border-radius:0;filter:saturate(.7) brightness(.98);mask-image:none;transform:none;background:color-mix(in srgb,var(--accent) 15%,#eef4f3)}#select .card.cutout img{object-fit:contain;object-position:center bottom}#select .card.on img{filter:none;transform:none}
+#select .card .shade,#select .card .vt,#select .card .no,#select .card.on::after{display:none}#select .card .lab{left:18px;right:16px;bottom:17px;z-index:8}#select .card .nm{font-family:var(--f-kr);font-size:16px;color:var(--pencil);text-shadow:none;white-space:nowrap}#select .card.on .nm{font-size:22px}#select .card .en{display:block;color:#839098;font-size:8px;letter-spacing:.16em;margin-top:4px}#select .card .sq{border-color:var(--accent2);transform:rotate(45deg)}#select .card.on .sq{background:var(--accent2);box-shadow:none}#select .card.on::before{content:"";right:auto;bottom:auto;transform:translateX(-50%) rotate(-2deg)}
+#select .card.add{--cw:52px;height:190px;padding:0;background:#ffffff73;border:2px dashed #6f899544;box-shadow:none;transform:rotate(2deg);opacity:1!important}.card.add span{color:#647982}
+#select .detail{position:relative;grid-template-columns:1fr 1.15fr auto;padding:22px 26px 20px;margin:0 0 32px;background:#fffdf8;border:1px solid #526a7520;box-shadow:4px 6px 0 #566e7914;transform:rotate(.2deg)}#select .detail::before{content:"MEMO";position:absolute;right:20px;top:-9px;background:var(--accent2);color:#fff;padding:4px 10px;font:700 9px var(--f-hud);letter-spacing:.16em;transform:rotate(2deg)}#select .detail .d-name{color:var(--pencil);font-size:34px}#select .detail .d-en{color:#829098}#select .detail .d-tag{color:#5d717a}#select .detail .d-desc{color:#677780}#select .detail .enter{background:var(--accent);color:#fff;border:0;border-radius:999px;box-shadow:3px 4px 0 #445b6622;text-align:center}
+#select .notice{position:static;margin:0 0 15px;color:#7b898f}#select .keys{display:none}
+.decor-density-2 #select .stage::before,.decor-density-3 #select .stage::before{content:"♡";position:absolute;left:5%;top:18%;font:700 54px var(--f-hud);color:var(--accent2);transform:rotate(-12deg)}.decor-density-3 #select .stage::after{content:"✦ GOOD LUCK! ✦";position:absolute;right:3%;bottom:8%;font:700 16px var(--f-hud);letter-spacing:.1em;color:var(--accent);transform:rotate(7deg)}
+/* profile: student scrapbook spread */
+#profile{background:var(--album);color:var(--pencil)}#profile .cover{min-height:min(820px,92vh);background:var(--album)}#profile .cv-bg{filter:grayscale(.2) brightness(1.1);opacity:.12;mix-blend-mode:multiply}#profile .cv-tint{background:var(--accent);opacity:.15;mix-blend-mode:multiply}#profile .cv-glow{background:radial-gradient(45% 60% at 70% 45%,color-mix(in srgb,var(--accent) 36%,transparent),transparent 72%)}#profile .cv-scrim{background:linear-gradient(90deg,#fff9edf5 0,#fff9edb8 37%,transparent 68%),linear-gradient(0deg,var(--album),transparent 32%)}#profile .cover::before{background:repeating-linear-gradient(0deg,transparent 0 31px,#66818d17 31px 32px)}#profile .cover::after{content:"CLASS NOTE";color:#4e68710a;font-size:clamp(100px,20vw,280px)}#profile .cv-art{filter:drop-shadow(12px 16px 0 color-mix(in srgb,var(--accent) 24%,transparent)) drop-shadow(0 20px 22px #526c7826)}#profile .cv-top .line-btn{background:#fffdf7d9;color:#536873;border-color:#667e8938;border-radius:999px;box-shadow:2px 3px 0 #435a6514}#profile .masthead{color:#71848c;border-color:#526b762b}#profile .masthead span:nth-child(2){color:#536d78}#profile .cv-text{padding:22px;background:#fffdf6d9;border:1px solid #667d8826;box-shadow:7px 9px 0 #5e768015;transform:rotate(-.4deg)}#profile .cv-text::before{content:"";position:absolute;top:-12px;left:50%;width:105px;height:24px;background:#f3d99ba3;transform:translateX(-50%) rotate(1deg)}#profile .cv-tag{color:#627680}#profile .cv-name{color:var(--pencil);text-shadow:none;font-size:clamp(58px,8vw,112px)}#profile .cv-en{color:#778991}#profile .cv-quote{color:#4e616a;border-color:var(--accent)}#profile .cv-tags{color:#74878f}#profile .article,#profile .pager{background:var(--album)}#profile .article{background-image:repeating-linear-gradient(0deg,transparent 0 34px,#5e788314 34px 35px)}#profile .sec-k{color:#5d727b}#profile .sec-k::after{background:#5e76802a}#profile .lede,#profile .facts dd{color:#445861}#profile .facts .row{border-color:#5c748029}#profile .facts dt{color:#788a91}#profile .plate{background:#fff;padding:9px 9px 30px;box-shadow:4px 6px 14px #526b761c;transform:rotate(-.6deg)}#profile .plate:nth-child(even){transform:rotate(1deg)}#profile .plate figcaption{color:#586b73;text-shadow:none;bottom:9px}#profile .castc .ph{background:#fff;padding:8px;box-sizing:border-box;box-shadow:3px 5px 12px #526a751c}#profile .castc b{color:#43565f}#profile .pager-in{border-color:#59717c2e}#profile .pg b{color:#455a63}#profile .pg:hover b{color:var(--accent)}
+@media(max-width:760px){#select .stage{justify-content:flex-start;padding:42px 10vw 34px}#select .card,#select .card:nth-child(n),#select .card.on{--cw:150px;height:325px;transform:rotate(calc((var(--card-i,0) - 1.5) * var(--tilt,1) * 1deg))}#select .card.on{--cw:235px;height:390px}#select .detail{grid-template-columns:1fr;gap:12px;padding:20px}#select .detail .enter{width:100%}.decor-panel{top:140px}#profile .cv-text{left:20px;right:20px;padding:17px}#profile .cv-name{font-size:52px}#profile .cv-scrim{background:linear-gradient(0deg,var(--album),#fff9edda 38%,transparent 72%)}}
+</style>
 </head>
 <body>
 
@@ -392,12 +422,23 @@ body{margin:0;background:#f1f7f7;color:var(--ink)}#select{background:linear-grad
       </div>
       <div class="hud-r">
         <span class="roster-n">ROSTER <b id="count">00</b></span>
+        <button class="line-btn" id="decorate" type="button">✦ 꾸미기</button>
         <button class="line-btn" id="worldBg" type="button">배경 바꾸기</button>
         <button class="line-btn" id="worldBgReset" type="button" hidden>기본 배경</button>
         <button class="hudbtn" id="addTop" type="button">+ 캐릭터 추가</button>
       </div>
     </header>
     <div class="hud-rule"></div>
+    <aside class="decor-panel" id="decorPanel" hidden aria-label="앨범 꾸미기">
+      <div class="decor-head"><b>MY SCHOOL ALBUM</b><button type="button" id="decorClose" aria-label="꾸미기 닫기">×</button></div>
+      <div class="decor-group"><span>색감</span><div class="decor-swatches" id="decorColors"></div></div>
+      <div class="decor-group"><span>배경</span><div class="decor-options" id="decorPatterns"></div></div>
+      <div class="decor-group decor-ranges">
+        <label>카드 기울기 <input type="range" id="decorTilt" min="0" max="5" step="1"></label>
+        <label>스티커 밀도 <input type="range" id="decorDensity" min="0" max="3" step="1"></label>
+      </div>
+      <button class="decor-reset" type="button" id="decorReset">기본값으로</button>
+    </aside>
     <div class="notice" id="notice" hidden>
       <span>실루엣 카드는 샘플이에요. 필요 없으면 지워 주세요.</span>
       <button type="button" id="clearSamples">샘플 모두 지우기</button>
@@ -774,6 +815,41 @@ function paintHome(){
  const art=$('.banner-art');art.onpointerdown=e=>{if(!homeEditing)return;e.preventDefault();const initial={...l,...c.homeLayout},r=art.getBoundingClientRect(),x=e.clientX,y=e.clientY;art.setPointerCapture(e.pointerId);art.onpointermove=ev=>{c.homeLayout={...initial,x:clamp(initial.x+(ev.clientX-x)/r.width*100,-70,70),y:clamp(initial.y+(ev.clientY-y)/r.height*100,-70,70)};banner.style.setProperty('--image-x',c.homeLayout.x+'%');banner.style.setProperty('--image-y',c.homeLayout.y+'%')};art.onpointerup=art.onpointercancel=()=>{art.onpointermove=null;save();paintHome()}};
 }
 const originalSetFocus=setFocus;setFocus=function(i,scroll=true){originalSetFocus(i,scroll);paintHome()};
+
+/* ================= ALBUM DECORATION ================= */
+const DECOR_DEFAULT={palette:'sky',pattern:'grid',tilt:2,density:2};
+const DECOR_PALETTES={
+ sky:['#84b9d3','#f2a7b7','#fff9ed'],
+ peach:['#f3aa8f','#8fc9b9','#fff8e9'],
+ grape:['#aa9bd6','#f0a8c0','#fbf8ef'],
+ lemon:['#e8bf58','#7ab7bb','#fffbed'],
+ denim:['#668eb5','#e99a79','#f7f3e8'],
+ mono:['#829098','#c4a7a0','#f5f3ed']
+};
+const DECOR_PATTERNS={
+ plain:'none',
+ grid:'linear-gradient(#76909b18 1px,transparent 1px),linear-gradient(90deg,#76909b18 1px,transparent 1px)',
+ lines:'repeating-linear-gradient(0deg,transparent 0 31px,#76909b1a 31px 32px)',
+ dots:'radial-gradient(#6d899426 1.2px,transparent 1.5px)',
+ checks:'linear-gradient(45deg,#8099a512 25%,transparent 25% 75%,#8099a512 75%),linear-gradient(45deg,#8099a512 25%,transparent 25% 75%,#8099a512 75%)'
+};
+function applyDecor(){
+ const d={...DECOR_DEFAULT,...data.decor},p=DECOR_PALETTES[d.palette]||DECOR_PALETTES.sky;
+ document.documentElement.style.setProperty('--accent',p[0]);document.documentElement.style.setProperty('--accent2',p[1]);document.documentElement.style.setProperty('--album',p[2]);
+ const select=$('#select');select.style.setProperty('--accent',p[0]);select.style.setProperty('--accent2',p[1]);select.style.setProperty('--album',p[2]);select.style.setProperty('--tilt',d.tilt);select.style.setProperty('--paper-pattern',DECOR_PATTERNS[d.pattern]);
+ select.style.setProperty('background-size',d.pattern==='grid'?'32px 32px':d.pattern==='dots'?'18px 18px':d.pattern==='checks'?'38px 38px':'auto');
+ document.body.className=document.body.className.replace(/\bdecor-density-\d\b/g,'').trim();document.body.classList.add('decor-density-'+d.density);
+ const colors=$('#decorColors');if(colors)colors.innerHTML=Object.entries(DECOR_PALETTES).map(([key,v])=>`<button type="button" class="decor-swatch${key===d.palette?' on':''}" data-palette="${key}" style="background:linear-gradient(135deg,${v[0]} 0 50%,${v[1]} 50%)" aria-label="${key} 색감"></button>`).join('');
+ const patterns=$('#decorPatterns');if(patterns)patterns.innerHTML=Object.keys(DECOR_PATTERNS).map(key=>`<button type="button" class="decor-option${key===d.pattern?' on':''}" data-pattern="${key}">${({plain:'깨끗',grid:'모눈',lines:'공책',dots:'도트',checks:'체크'})[key]}</button>`).join('');
+ if($('#decorTilt'))$('#decorTilt').value=d.tilt;if($('#decorDensity'))$('#decorDensity').value=d.density;
+}
+const originalRenderSelect=renderSelect;renderSelect=function(){originalRenderSelect();applyDecor()};
+$('#decorate').addEventListener('click',()=>{$('#decorPanel').hidden=!$('#decorPanel').hidden;applyDecor()});
+$('#decorClose').addEventListener('click',()=>{$('#decorPanel').hidden=true});
+$('#decorPanel').addEventListener('click',e=>{const pal=e.target.closest('[data-palette]'),pat=e.target.closest('[data-pattern]');if(!pal&&!pat)return;data.decor={...DECOR_DEFAULT,...data.decor};if(pal)data.decor.palette=pal.dataset.palette;if(pat)data.decor.pattern=pat.dataset.pattern;save();applyDecor()});
+$('#decorTilt').addEventListener('input',e=>{data.decor={...DECOR_DEFAULT,...data.decor,tilt:+e.target.value};save();applyDecor()});
+$('#decorDensity').addEventListener('input',e=>{data.decor={...DECOR_DEFAULT,...data.decor,density:+e.target.value};save();applyDecor()});
+$('#decorReset').addEventListener('click',()=>{data.decor={...DECOR_DEFAULT};save();applyDecor();toast('앨범 꾸미기를 기본값으로 되돌렸어요.')});
 
 renderSelect();
 })();
