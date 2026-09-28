@@ -77,7 +77,10 @@ header{height:72px;min-height:72px;padding:0 28px;display:flex;align-items:cente
 .download-html{margin-left:auto;margin-right:10px;padding:10px 15px;border:1px solid #62666b;background:#f4f4ee;color:#181b20;font:600 13px system-ui;cursor:pointer;white-space:nowrap}.download-html:disabled{opacity:.5;cursor:wait}header .add-button{margin-left:0}@media(max-width:600px){.download-html{padding:9px;font-size:11px;margin-right:6px}}
 
 /* Character selector: a compact vertical rail, with face-first thumbnails. */
-.workspace{grid-template-columns:190px minmax(250px,1fr) 330px}
+.workspace{display:grid!important;grid-template-columns:190px minmax(250px,1fr) 330px!important;grid-template-areas:'roster stage inspector'!important}
+.workspace>.roster{grid-area:roster!important;grid-column:1 / 2!important;grid-row:1!important;width:auto!important;height:100%!important}
+.workspace>.stage{grid-area:stage!important;grid-column:2 / 3!important;grid-row:1!important}
+.workspace>#inspector{grid-area:inspector!important;grid-column:3 / 4!important;grid-row:1!important}
 .roster{min-height:0!important;height:100%;padding:26px 18px 18px 0!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;background:transparent!important;border-right:1px solid #aeb7bb!important;border-bottom:0!important}
 .roster-title{padding:0 8px 13px!important;margin:0!important;border-bottom:2px solid #313b44;justify-content:flex-start!important;gap:13px!important}.roster-title h2{display:block!important;font-size:14px!important;font-weight:700!important;letter-spacing:.04em}.roster-title>span{font-size:26px!important;font-weight:700!important;color:var(--poster-accent)!important}
 .roster-tools{padding:12px 8px 0!important}.roster-tools .search{border:1px solid #b9c2c4;background:#ffffff9c;padding:0 8px}.roster-tools .search input{font-size:11px!important;padding:7px 0!important}
